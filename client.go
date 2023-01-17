@@ -278,6 +278,7 @@ func (c *Client) monitor(ctx context.Context) {
 				action = abortReconnect
 
 			case errors.Is(err, ua.StatusBadNoSubscription):
+				// see: https://github.com/gopcua/opcua/issues/434
 				action = none
 
 			case errors.Is(err, ua.StatusBadSecureChannelIDInvalid):
